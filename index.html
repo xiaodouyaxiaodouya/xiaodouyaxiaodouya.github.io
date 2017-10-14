@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<ul id = "ul1">
+  <li>我是第1个li标签</li>
+  <li>我是第2个li标签</li>
+  <li>我是第3个li标签</li>
+  <li>我是第4个li标签</li>
+  <li>我是第5个li标签</li>
+  <li>我是第6个li标签</li>
+  <li>我是第7个li标签</li>
+  <li>我是第8个li标签</li>
+  <li>我是第9个li标签</li>
+  <li>我是第10个li标签</li>
+</ul>
+
+<script>
+  //1.获取到这些个li标签
+  var lis = document.getElementsByTagName("li");
+  //2.分别给这些个li标签设置背景色
+  for(var i = 0 ; i < lis.length; i++){
+    if(i % 2 == 0){
+      lis[i].style.backgroundColor = "pink";
+    }else {
+      lis[i].style.backgroundColor = "skyblue";
+    }
+  }
+
+  //3.鼠标挪进去某一个li标签，那个li标签就应该变成红色。
+  //鼠标移入事件  onmouseover
+  //给每一个li标签注册一个鼠标移入事件。
+  for(var i = 0 ; i < lis.length; i++){
+  	lis[i].onmouseover  = function () {
+
+      //3.1 排他 ，其他的li标签的颜色要变成原来的原色。
+      for(var j = 0 ; j < lis.length; j++){
+        if(j % 2 == 0){
+          lis[j].style.backgroundColor = "pink";
+        }else {
+          lis[j].style.backgroundColor = "skyblue";
+        }
+      }
+
+
+      //3.2 把当前这个li标签的背景色改成红色
+      this.style.backgroundColor = "red";
+    }
+  }
+</script>
+
+</body>
+</html>
